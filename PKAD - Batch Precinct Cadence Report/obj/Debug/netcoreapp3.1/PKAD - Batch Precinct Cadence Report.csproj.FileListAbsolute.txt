@@ -1,0 +1,26 @@
+E:\My Work\2021\11\PKAD - Batch Precinct Cadence Report\PKAD - Batch Precinct Cadence Report\bin\Debug\netcoreapp3.1\PKAD - Batch Precinct Cadence Report.exe
+E:\My Work\2021\11\PKAD - Batch Precinct Cadence Report\PKAD - Batch Precinct Cadence Report\bin\Debug\netcoreapp3.1\PKAD - Batch Precinct Cadence Report.deps.json
+E:\My Work\2021\11\PKAD - Batch Precinct Cadence Report\PKAD - Batch Precinct Cadence Report\bin\Debug\netcoreapp3.1\PKAD - Batch Precinct Cadence Report.runtimeconfig.json
+E:\My Work\2021\11\PKAD - Batch Precinct Cadence Report\PKAD - Batch Precinct Cadence Report\bin\Debug\netcoreapp3.1\PKAD - Batch Precinct Cadence Report.runtimeconfig.dev.json
+E:\My Work\2021\11\PKAD - Batch Precinct Cadence Report\PKAD - Batch Precinct Cadence Report\bin\Debug\netcoreapp3.1\PKAD - Batch Precinct Cadence Report.dll
+E:\My Work\2021\11\PKAD - Batch Precinct Cadence Report\PKAD - Batch Precinct Cadence Report\bin\Debug\netcoreapp3.1\PKAD - Batch Precinct Cadence Report.pdb
+E:\My Work\2021\11\PKAD - Batch Precinct Cadence Report\PKAD - Batch Precinct Cadence Report\bin\Debug\netcoreapp3.1\CsvHelper.dll
+E:\My Work\2021\11\PKAD - Batch Precinct Cadence Report\PKAD - Batch Precinct Cadence Report\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+E:\My Work\2021\11\PKAD - Batch Precinct Cadence Report\PKAD - Batch Precinct Cadence Report\bin\Debug\netcoreapp3.1\System.Drawing.Common.dll
+E:\My Work\2021\11\PKAD - Batch Precinct Cadence Report\PKAD - Batch Precinct Cadence Report\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+E:\My Work\2021\11\PKAD - Batch Precinct Cadence Report\PKAD - Batch Precinct Cadence Report\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\System.Drawing.Common.dll
+E:\My Work\2021\11\PKAD - Batch Precinct Cadence Report\PKAD - Batch Precinct Cadence Report\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\System.Drawing.Common.dll
+E:\My Work\2021\11\PKAD - Batch Precinct Cadence Report\PKAD - Batch Precinct Cadence Report\obj\Debug\netcoreapp3.1\PKAD - Batch Precinct Cadence Report.csproj.AssemblyReference.cache
+E:\My Work\2021\11\PKAD - Batch Precinct Cadence Report\PKAD - Batch Precinct Cadence Report\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+E:\My Work\2021\11\PKAD - Batch Precinct Cadence Report\PKAD - Batch Precinct Cadence Report\obj\Debug\netcoreapp3.1\App.g.cs
+E:\My Work\2021\11\PKAD - Batch Precinct Cadence Report\PKAD - Batch Precinct Cadence Report\obj\Debug\netcoreapp3.1\PKAD - Batch Precinct Cadence Report_MarkupCompile.cache
+E:\My Work\2021\11\PKAD - Batch Precinct Cadence Report\PKAD - Batch Precinct Cadence Report\obj\Debug\netcoreapp3.1\PKAD - Batch Precinct Cadence Report_MarkupCompile.lref
+E:\My Work\2021\11\PKAD - Batch Precinct Cadence Report\PKAD - Batch Precinct Cadence Report\obj\Debug\netcoreapp3.1\MainWindow.baml
+E:\My Work\2021\11\PKAD - Batch Precinct Cadence Report\PKAD - Batch Precinct Cadence Report\obj\Debug\netcoreapp3.1\PKAD - Batch Precinct Cadence Report.g.resources
+E:\My Work\2021\11\PKAD - Batch Precinct Cadence Report\PKAD - Batch Precinct Cadence Report\obj\Debug\netcoreapp3.1\PKAD - Batch Precinct Cadence Report.AssemblyInfoInputs.cache
+E:\My Work\2021\11\PKAD - Batch Precinct Cadence Report\PKAD - Batch Precinct Cadence Report\obj\Debug\netcoreapp3.1\PKAD - Batch Precinct Cadence Report.AssemblyInfo.cs
+E:\My Work\2021\11\PKAD - Batch Precinct Cadence Report\PKAD - Batch Precinct Cadence Report\obj\Debug\netcoreapp3.1\PKAD - Batch Precinct Cadence Report.csproj.CoreCompileInputs.cache
+E:\My Work\2021\11\PKAD - Batch Precinct Cadence Report\PKAD - Batch Precinct Cadence Report\obj\Debug\netcoreapp3.1\PKAD - Batch Precinct Cadence Report.csproj.CopyComplete
+E:\My Work\2021\11\PKAD - Batch Precinct Cadence Report\PKAD - Batch Precinct Cadence Report\obj\Debug\netcoreapp3.1\PKAD - Batch Precinct Cadence Report.dll
+E:\My Work\2021\11\PKAD - Batch Precinct Cadence Report\PKAD - Batch Precinct Cadence Report\obj\Debug\netcoreapp3.1\PKAD - Batch Precinct Cadence Report.pdb
+E:\My Work\2021\11\PKAD - Batch Precinct Cadence Report\PKAD - Batch Precinct Cadence Report\obj\Debug\netcoreapp3.1\PKAD - Batch Precinct Cadence Report.genruntimeconfig.cache

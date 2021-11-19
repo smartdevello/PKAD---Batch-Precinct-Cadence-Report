@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "fIPD0+THopEnrySWvkOA39DnUmrBbimCC65jW07Y2yBp5AthZ7biAtB8BrmYFMB4yhAFpD5V5l+h9k0bMjTQqw==",
+  "success": true,
+  "projectFilePath": "E:\\My Work\\2021\\11\\PKAD - Batch Precinct Cadence Report\\PKAD - Batch Precinct Cadence Report\\PKAD - Batch Precinct Cadence Report.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\micha\\.nuget\\packages\\csvhelper\\27.2.0\\csvhelper.27.2.0.nupkg.sha512",
+    "C:\\Users\\micha\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\micha\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\micha\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
