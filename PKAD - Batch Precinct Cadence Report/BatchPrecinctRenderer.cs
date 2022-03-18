@@ -19,11 +19,15 @@ namespace PKAD___Batch_Precinct_Cadence_Report
         private Dictionary<string, int> left_info_dict = null;
 
         Image logoImg = Image.FromFile(Path.Combine(Directory.GetCurrentDirectory(), "assets", "logo.png"));
+        Image magnify_glassImg = Image.FromFile(Path.Combine(Directory.GetCurrentDirectory(), "assets", "magnifying-glass.png"));
 
+
+        private Dictionary<int, Color> colorDic  = null;
         public BatchPrecinctRenderer(int width, int height)
         {
             this.width = width;
-            this.height = height;
+            this.height = height;           
+
         }
         public void setRenderSize(int width, int height)
         {
@@ -50,6 +54,24 @@ namespace PKAD___Batch_Precinct_Cadence_Report
             this.data = data;
             this.printers = pp;
             this.left_info_dict = qq;
+
+            colorDic = new Dictionary<int, Color>();
+            var sorted_printers = printers.OrderByDescending(o => o.Value);
+            int prev_cnt = 0;
+            Random rnd = new Random();
+
+
+            for (int i = 0; i < sorted_printers.Count(); i++)
+            {
+                if (sorted_printers.ElementAt(i).Value != prev_cnt)
+                {
+                    prev_cnt = sorted_printers.ElementAt(i).Value;
+                    if (!colorDic.ContainsKey(prev_cnt))
+                    {
+                        colorDic[prev_cnt] = System.Drawing.Color.FromArgb(rnd.Next(0, 200), rnd.Next(0, 200), rnd.Next(0, 200));
+                    }
+                }
+            }
         }
 
         public Point convertCoord(Point a)
@@ -72,6 +94,25 @@ namespace PKAD___Batch_Precinct_Cadence_Report
         public Bitmap getBmp()
         {
             return this.bmp;
+        }
+        protected void RenderDropshadowText(string text, Font font, Color foreground, Color shadow,  int shadowAlpha, PointF location)
+        {
+            const int DISTANCE = 2;
+            for (int offset = 1; 0 <= offset; offset--)
+            {
+                Color color = ((offset < 1) ?
+                    foreground : Color.FromArgb(shadowAlpha, shadow));
+                using (var brush = new SolidBrush(color))
+                {
+                    var point = new PointF()
+                    {
+                        X = location.X + (offset * DISTANCE),
+                        Y = location.Y + (offset * DISTANCE)
+                    };
+                    point = convertCoord(point);
+                    gfx.DrawString(text, font, brush, point);
+                }
+            }
         }
         public void drawCenteredString(string content, Rectangle rect, Brush brush, Font font)
         {
@@ -291,10 +332,12 @@ namespace PKAD___Batch_Precinct_Cadence_Report
             float percentage = 0;
 
             Font numberFont = new Font("Arial", 35, FontStyle.Bold, GraphicsUnit.Point);
+            Font numberFont2 = new Font("Arial", 25, FontStyle.Bold, GraphicsUnit.Point);
             Font textFont = new Font("Arial", 14, FontStyle.Bold, GraphicsUnit.Point);
             Font titleFont1 = new Font("Arial", 21, FontStyle.Bold, GraphicsUnit.Point);
             Font titleFont2 = new Font("Arial", 18, FontStyle.Bold, GraphicsUnit.Point);
             Font scaleFont = new Font("Arial", 8, FontStyle.Regular, GraphicsUnit.Point);
+            Font copyrightFont = new Font("Arial", 12, FontStyle.Regular, GraphicsUnit.Point);
             Font percentFont = new Font("Arial", 21, FontStyle.Bold, GraphicsUnit.Point);
 
             drawCenteredString(data.Count().ToString(), new Rectangle(0, 920, 200, 80), Brushes.Red, numberFont);
@@ -324,8 +367,8 @@ namespace PKAD___Batch_Precinct_Cadence_Report
             drawCenteredString("Early Vote", new Rectangle(0, 690, 200, 50), Brushes.Black, titleFont1);
             drawCenteredString("Ballots", new Rectangle(0, 650, 200, 50), Brushes.Black, titleFont2);
 
-            drawCenteredString(tot_count.ToString(), new Rectangle(0, 580, 200, 50), Brushes.Red, numberFont);
-            drawCenteredString("Precincts Reporting", new Rectangle(0, 530, 200, 100), Brushes.Black, titleFont1);
+            //drawCenteredString(tot_count.ToString(), new Rectangle(0, 580, 200, 50), Brushes.Red, numberFont);
+            //drawCenteredString("Precincts Reporting", new Rectangle(0, 530, 200, 100), Brushes.Black, titleFont1);
 
 
             Pen pen4= new Pen(Color.Black, 4);            
@@ -350,25 +393,57 @@ namespace PKAD___Batch_Precinct_Cadence_Report
             int width_gap = 300;
 
             var sorted_printers = printers.OrderByDescending(o => o.Value);
-            int len = sorted_printers.Count();
+           
+
+            drawCenteredString(sorted_printers.Count().ToString(), new Rectangle(0, 580, 200, 50), Brushes.Red, numberFont);
+            drawCenteredString("Precincts Reporting", new Rectangle(0, 530, 200, 100), Brushes.Black, titleFont1);
+
+
+
+
+
 
             int barcodeX = 0, barcodeY = 0;
-            Random rnd = new Random();
-            Color color = new Color();
             int prev_cnt = 0;
+
+
+            int group_count_more5 = 0, count_more5 = 0;
+
+            Dictionary<int, int> dic_more5 = new Dictionary<int, int>();
+            for (int i = 0; i <sorted_printers.Count(); i++)
+            {
+                int key = sorted_printers.ElementAt(i).Value;
+
+                if (dic_more5.ContainsKey(key))
+                {
+                    dic_more5[key]++;
+                }
+                else dic_more5[key] = 1;
+            }
+            foreach(KeyValuePair<int, int> entry in dic_more5)
+            {
+                if (entry.Value >= 5)
+                {
+                    count_more5 += entry.Value;
+                    group_count_more5++;
+                }
+             
+            }
+
+            prev_cnt = 0;
+            int len = 0;
             for (int i = currentChartIndex * 70; i < Math.Min(sorted_printers.Count(), currentChartIndex * 70 + 70); i++)
             {
+                len++;
                 if (sorted_printers.ElementAt(i).Value != prev_cnt)
                 {
-                    color = Color.FromArgb(rnd.Next(0, 255), rnd.Next(0, 255), rnd.Next(0, 255));
                     prev_cnt = sorted_printers.ElementAt(i).Value;
                 }
-
                 int j = i % 70;
                 drawString(new Point(300 + width_gap * (j / 14), 600 - height_gap * (j % 14)), sorted_printers.ElementAt(i).Key, 8);
                 percentage = sorted_printers.ElementAt(i).Value * 100 / (float)data.Count;
 
-                drawPercentageLine(percentage, 470 + width_gap * (j / 14), 600 - height_gap * (j % 14), color);
+                drawPercentageLine(percentage, 470 + width_gap * (j / 14), 600 - height_gap * (j % 14), colorDic[prev_cnt]);
                 barcodeX = 320 + j * 21;
 
                 if (sorted_printers.ElementAt(i).Value <= 10)
@@ -378,22 +453,45 @@ namespace PKAD___Batch_Precinct_Cadence_Report
                     barcodeY = 880;
                     drawString(new Point(barcodeX - 10, 900), sorted_printers.ElementAt(i).Value.ToString(), 10);
                 }
-                drawLine(new Point(barcodeX, 650), new Point(barcodeX, barcodeY), color, 4);
+                drawLine(new Point(barcodeX, 650), new Point(barcodeX, barcodeY), colorDic[prev_cnt], 4);
                 
             }
 
 
 
+            drawCenteredString(group_count_more5.ToString(), new Rectangle(0, 400, 200, 50), Brushes.Red, numberFont);
+            drawImg(magnify_glassImg, new Point(40, 450), new Size(200, 180));
+            
+            int percent = (int)(count_more5 * 100 / sorted_printers.Count());
+
+            drawCenteredString(percent.ToString() + "%", new Rectangle(120, 400, 200, 50), Brushes.Red, numberFont2);
+            drawCenteredString("Measured\nRythms\nDETECTED", new Rectangle(0, 320, 200, 100), Brushes.Red, titleFont1);
+
+
+            //drawCenteredString(string.Format("ppp{0:0.####}", sorted_printers.Count() * 100 / (float)743), new Rectangle(0, 120, 180, 100), Brushes.Orange, textFont);
+
+            RenderDropshadowText(string.Format("ppp{0:0.####}", sorted_printers.Count() * 100 / (float)743), textFont, Color.Orange, Color.Black, 50, new PointF(30, 90));
+
+
+            int chartCount = 1;
+            chartCount = chartCount + sorted_printers.Count() / 70;
+            if (sorted_printers.Count() % 70 == 0) chartCount--;
+
+
+            drawCenteredString(string.Format("{0} of {1}", currentChartIndex + 1, chartCount), new Rectangle(1000, 70, 400, 100), Brushes.Red, numberFont2);
+            drawCenteredString("© 2021 Tesla Laboratories, llc & JHP", new Rectangle(1500, 70, 400, 100), Brushes.Black, copyrightFont);
+
             pen4.Dispose();
             pen1.Dispose();
 
             numberFont.Dispose();
+            numberFont2.Dispose();
             textFont.Dispose();
             titleFont1.Dispose();
             titleFont2.Dispose();
             scaleFont.Dispose();
             percentFont.Dispose();
-
+            copyrightFont.Dispose();
 
         }
 

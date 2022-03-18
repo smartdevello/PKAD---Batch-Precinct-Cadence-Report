@@ -122,6 +122,7 @@ namespace PKAD___Batch_Precinct_Cadence_Report
                         else left_info_dic[words[1]] = 1;
 
                     }
+
                     batchPrecinctRenderer.setChatData(sorted, printers, left_info_dic);
 
                     currentChartIndex = 0;

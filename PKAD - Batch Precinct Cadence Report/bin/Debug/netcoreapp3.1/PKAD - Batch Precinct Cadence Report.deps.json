@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "PKAD - Batch Precinct Cadence Report/1.0.0": {
+      "PKAD - Batch Precinct Cadence Report/1.8": {
         "dependencies": {
           "CsvHelper": "27.2.0",
           "System.Drawing.Common": "6.0.0"
@@ -71,7 +71,7 @@
     }
   },
   "libraries": {
-    "PKAD - Batch Precinct Cadence Report/1.0.0": {
+    "PKAD - Batch Precinct Cadence Report/1.8": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

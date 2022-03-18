@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PKAD___Batch_Precinct_Cadence_Report"
         mc:Ignorable="d"
-        Title="PKAD - Batch Precinct Cadence Report v1.0 " Height="1000" Width="1800">
+        Title="PKAD - Batch Precinct Cadence Report v1.8" Height="1000" Width="1800">
     <Grid Margin="10">
         <DockPanel Margin="10">
             <WrapPanel HorizontalAlignment="Center" DockPanel.Dock="Top" Margin="0,0,0,10">
@@ -37,11 +37,7 @@
                 </DockPanel>
 
                 <Image Name="myImage"></Image>
-                <DockPanel Margin="10" Panel.ZIndex="1"  Canvas.Right="50" Canvas.Bottom ="0">
-                    <WrapPanel HorizontalAlignment="Center"  DockPanel.Dock="Top" >
-                        <TextBlock  Text="&#169; 2021 Tesla Laboratories, llc &amp; JHP" HorizontalAlignment="Center" FontSize="15"/>
-                    </WrapPanel>
-                </DockPanel>
+
             </Canvas>
         </Border>
         <DockPanel Margin="10,900,10,10">
